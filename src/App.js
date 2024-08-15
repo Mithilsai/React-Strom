@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { Container, Navbar, Nav } from 'react-bootstrap';
+import SearchBar from './components/SearchBar';
+import WeatherCard from './components/WeatherCard';
 
 function App() {
+  const [city, setCity] = useState(null);
+
+  const handleCitySelect = (city) => {
+    setCity(city);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <Container fluid>
+<Navbar bg="primary" variant="dark" expand="lg">
+  <Container>
+    <Navbar.Brand href="#home">Real Time Weather App</Navbar.Brand>
+    <Navbar.Collapse className="justify-content-end">
+      <Nav>
+        <Nav.Link href="https://mithilsai.github.io/" target="_blank">Creator</Nav.Link>
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
+
+
+      <Container className="mt-5 pt-5">
+        <SearchBar onCitySelect={handleCitySelect} />
+        {city && <WeatherCard city={city} />}
+      </Container>
+
+      <footer className="bg-primary text-white text-center py-3 mt-5">
+        <p>&copy; {new Date().getFullYear()} Real Time Weather App</p>
+      </footer>
+    </Container>
   );
 }
 
