@@ -20,12 +20,4 @@ A real-time weather application built with React that allows users to search for
 - **Open-Meteo API**: Weather data API for fetching weather forecasts.
 - **OpenStreetMap**: Map tiles and geocoding service.
 
-## Installation
-
-To get started with the project, follow these steps:
-
-1. **Clone the Repository**
-
-   ```bash
-   git clone https://github.com/your-username/real-time-weather-app.git
 
